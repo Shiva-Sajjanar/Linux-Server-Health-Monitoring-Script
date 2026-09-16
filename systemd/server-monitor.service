@@ -1,0 +1,19 @@
+[Unit]
+Description=Linux Server Health Monitoring & Incident Alerting Service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/server-monitor -s -o json
+StandardOutput=append:/var/log/server-monitor/monitor.log
+StandardError=append:/var/log/server-monitor/monitor.log
+User=root
+Group=root
+
+# Security sandbox directives
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

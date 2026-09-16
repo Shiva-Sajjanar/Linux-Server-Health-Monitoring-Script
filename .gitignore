@@ -1,0 +1,20 @@
+# Runtime state and locks
+*.lock
+*.state
+*.tmp
+
+# Logs
+*.log
+/var/log/
+log/
+
+# Generated HTML reports
+*.html
+!docs/*.html
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store

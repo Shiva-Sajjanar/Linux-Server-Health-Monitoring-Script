@@ -1,0 +1,30 @@
+name: ShellCheck & Test Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-test:
+    name: ShellCheck & Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck procps sysstat
+
+      - name: Run ShellCheck Static Analysis
+        run: |
+          shellcheck -x bin/monitor.sh lib/*.sh install.sh uninstall.sh tests/test_suite.sh
+
+      - name: Execute Automated Test Suite
+        run: |
+          chmod +x bin/monitor.sh tests/test_suite.sh
+          bash tests/test_suite.sh

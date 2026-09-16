@@ -1,0 +1,6 @@
+# /etc/cron.d/server-monitor
+# Alternative to systemd timer: Run health monitor every 5 minutes
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+*/5 * * * * root /usr/local/bin/server-monitor -s >> /var/log/server-monitor/cron.log 2>&1
