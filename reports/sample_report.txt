@@ -1,0 +1,16 @@
+===== SERVER HEALTH REPORT =====
+
+Hostname       : ubuntu-server
+OS Version     : Ubuntu 22.04 LTS
+Uptime         : 5 days, 4 hours
+CPU Usage      : 23%
+Memory Usage   : 41% (3.2GB / 8.0GB)
+Disk Usage     : 62% (24GB / 40GB)
+Processes      : 142 running
+
+SSH Service    : RUNNING
+Docker Service : RUNNING
+
+Internet       : OK
+
+===== STATUS: HEALTHY =====
